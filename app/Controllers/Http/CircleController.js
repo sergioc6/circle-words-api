@@ -10,23 +10,30 @@ class CircleController {
 
     index({ request, response }) {
         try {
-            const data = request.only(['words'])
+            const requestData = request.only(['words'])
+            const words = [...new Set(requestData.words)];
 
-            let permutations = this.circleService.permuteArray(data.words);
+            let circles = this.circleService.getCirclesWords(words);
+            let data = circles.map(circle => { return circle.join(' -> ')})
+            let circlesLength = circles.length
 
-            console.log(permutations);
+            let message = (circlesLength != 0) ? `Existen  ${circlesLength} cìrculos posibles` : `No existen circulos para sus palabras`
 
             return response
                 .status(200)
                 .send({
-                    message: 'Test'
+                    status: 'success',
+                    message,
+                    data
                 })
 
-        } catch (error) {
+        } catch (err) {
             return response
-            .send(
-                error.message
-            )
+            .status(500)
+            .send({
+                    status: 'error',
+                    message: err.message
+            })
         }
 
 
