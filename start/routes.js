@@ -16,6 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => 'Circle Words API')
+Route.get('/', () => ({
+    "app": "Circle Words API",
+    "version": "1.0"
+}))
 
 Route.post('/circle', 'CircleController.index')

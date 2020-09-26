@@ -1,28 +1,40 @@
-# Adonis API application
-
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+# Circle Words API application
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Clone the repository
 
-```bash
-adonis new yardstick --api-only
+```sh
+$ git clone https://github.com/sergioc6/circle-words-api.git
+$ cd circle-word-api
 ```
 
-or manually clone the repo and then run `npm install`.
+Copy the enviorement example
+```sh
+$ cp .env.example .env
+```
 
+Run the server
+```sh
+$ node server.js
+```
 
-### Migrations
+## API specification
 
-Run the following command to run startup migrations.
+| Method | Path | Description |
+| --- | --- | ---|
+| GET | / | Main path, app name and version |
+| POST | /circle | Returns the list of possible circles |
 
-```js
-adonis migration:run
+# Body endpoint POST: /circle
+```sh
+{
+    "words": [
+        "chair", 
+        "height", 
+        "racket", 
+        "touch", 
+        "tunic"
+    ]
+}
 ```
