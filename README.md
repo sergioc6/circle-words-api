@@ -26,7 +26,7 @@ $ node server.js
 | GET | / | Main path, app name and version |
 | POST | /circle | Returns the list of possible circles |
 
-# Body endpoint POST: /circle
+### Body from endpoint POST:/circle
 ```sh
 {
     "words": [
