@@ -14,6 +14,11 @@ Copy the enviorement example
 $ cp .env.example .env
 ```
 
+Install the dependencies
+```sh
+$ npm install
+```
+
 Run the server
 ```sh
 $ node server.js
